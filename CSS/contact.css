@@ -1,0 +1,122 @@
+.contact-section {
+  padding: 60px 20px;
+  background-color: var(--color-bg-primary, #2c2c2c);
+  color: var(--color-text, #222);
+  border-top: 2px solid #6A0DAD;
+  border-bottom: 2px solid #6A0DAD;
+}
+
+.contact-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.contact-info {
+  flex: 1 1 40%;
+}
+
+.contact-info h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  color: rgb(243, 243, 243)
+}
+
+.contact-info p {
+  font-size: 1rem;
+  margin-bottom: 24px;
+  line-height: 1.6;
+  color: #dadada;
+}
+
+.contact-details {
+  list-style: none;
+  padding: 0;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #dadada;
+}
+
+.contact-details li {
+  margin-bottom: 12px;
+}
+.contact-links li a {
+  color: #dadada;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+.contact-links h3{
+    color: #dadada;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.contact-links ion-icon:hover {
+  color: var(--color-primary, #7c3aed);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-form {
+    width: 100%;
+  flex: 1 1 55%;
+  background-color: #f1f1f1;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--color-primary, #7c3aed);
+}
+
+.contact-form button {
+  padding: 12px;
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #6A0DAD;
+  color: #dfdfdf;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #520a86;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-form {
+    padding: 20px;
+
+  }
+}

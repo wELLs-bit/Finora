@@ -1,0 +1,47 @@
+@import url(./navbar.css);
+@import url(./hero.css);
+@import url(./chart.css);
+@import url(./analytics.css);
+@import url(./ads.css);
+@import url(./faqs.css);
+@import url(./review.css);
+@import url(./contact.css);
+
+:root {
+    --color-primary: #6A0DAD; /* Finora Purple */
+    --color-bg: #ffffff;
+    --color-bg-secondary: #f5f5f5;
+    --color-text: #1a1a1a;
+    --color-text-secondary: #4a4a4a;
+    --color-border: #dddddd;
+    
+  }
+
+  [data-theme="dark"] {
+    --color-primary: #B983FF; /* Lighter version of purple for contrast */
+    --color-bg: #121212;
+    --color-bg-secondary: #1e1e1e;
+    --color-text: #ffffff;
+    --color-text-secondary: #cccccc;
+    --color-border: #333333;
+  }
+  
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  
+  body {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text);
+  }
+
+
+  html {
+  scroll-behavior: smooth;
+}
+
+[data-aos] {
+  transition-property: opacity, transform;
+}

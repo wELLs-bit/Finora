@@ -1,0 +1,82 @@
+.analytics {
+  padding: 50px 14px;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
+  text-align: center;
+  border-top: 2px solid var(--color-border, #ddd);
+  border-bottom: 2px solid var(--color-border, #ddd);
+}
+
+.analytics-container h6 {
+  font-size: 14px;
+  color: var(--color-primary);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.analytics-container h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.analytics-container p {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto 48px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* Cards Grid */
+.analytics-contents {
+  display: flex;
+  justify-content: center;
+}
+
+.analytics-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Individual Card */
+.analytics-item {
+  background-color: var(--color-bg-primary, #1f1f1f);
+  border: 1px solid var(--border, #333);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: left;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.analytics-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.analytics-item ion-icon {
+  font-size: 32px;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+.analytics-item h3 {
+  color: var(--text-secondary, #aaa);
+
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.analytics-item p {
+  font-size: 16px;
+  color: var(--text-secondary, #aaa);
+  line-height: 1.5;
+}

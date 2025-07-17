@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./Assets/images/ChatGPT Image Jul 11, 2025, 11_43_44 AM.png"
+      type="image/x-icon"
+    />
+    <title>Finora</title>
+    <link rel="stylesheet" href="./CSS/main.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- AOS Integration -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Swiper Integration -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <!-- NavBar -->
+    <nav class="navbar">
+      <button class="hamburger" id="hamburger">&#9776;</button>
+
+      <div class="navbar-logo">
+        <img src="./Assets/images/Finora logo 2.png" alt="Finora Logo" />
+      </div>
+
+      <ul class="navbar-links" id="nav-links">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#analytics">ANALYTICS</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+        <li><a href="#blog">BLOG</a></li>
+        <li><a href="#pricing">PRICING</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+
+      <div class="navbar-actions">
+        <div class="theme-toggle-container">
+          <input type="checkbox" id="theme-toggle" />
+          <label for="theme-toggle" class="label"></label>
+        </div>
+        <a href="./login.html" class="btn-login">Login</a>
+      </div>
+    </nav>
+
+    <section id="home" class="hero">
+      <div class="hero-container">
+        <h5>Welcome to Finora</h5>
+        <p class="hero-subtitle">
+          Your one-stop solution for all your financial needs.
+        </p>
+        <div class="hero-contents">
+          <h1>Beautiful analytics to grow smarter</h1>
+          <p>
+            Powerful self-serve product and growth analytics to help you
+            convert, engage, and retain more users. <br />
+            Trusted by over 4,000 startups.
+          </p>
+          <div class="hero-buttons">
+            <button><a href="#">Get Started</a></button>
+            <button><a href="#">Learn More</a></button>
+          </div>
+          <div
+            class="hero-arrow animate__animated animate__bounce animate__infinite"
+          >
+            <ion-icon name="arrow-down-outline"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chart-section">
+      <!-- <div class="chart-image">
+        <img src="./Assets/images/chart img.png" alt="Analytics Chart" />
+      </div> -->
+      <div class="chart-content">
+        <h2>Insightful Financial Analytics</h2>
+        <p>
+          Finora helps you visualize and understand your financial data like
+          never before.
+          <br />
+          Our real-time analytics dashboard delivers clarity, trends, <br />
+          and patterns that empower your banking decisions.
+        </p>
+        <a href="#" class="btn-explore">Explore Dashboard</a>
+      </div>
+    </section>
+
+    <section id="analytics" class="analytics">
+      <div class="analytics-container">
+        <h6>Features</h6>
+        <h2>Analytics that feels like it's from the future</h2>
+        <p>
+          Powerful self-serve product and growth analytics to help you convert,
+          engage, and retain more users. <br />
+          Trusted by over 4,000 startups.
+        </p>
+
+        <div class="analytics-contents">
+          <div class="analytics-cards">
+            <div class="analytics-item">
+              <ion-icon name="chatbubbles-outline"></ion-icon>
+              <h3>Share team inboxes</h3>
+              <p>
+                Whether you have a team of 2 or 200, our shared team inboxes
+                keeps everyone on the same page and in the loop.
+              </p>
+            </div>
+
+            <div class="analytics-item">
+              <ion-icon name="flash-outline"></ion-icon>
+              <h3>Deliver instant answers</h3>
+              <p>
+                An all-in-one customer service platform that helps you balance
+                everything your customers need to be happy.
+              </p>
+            </div>
+
+            <div class="analytics-item">
+              <ion-icon name="receipt-outline"></ion-icon>
+              <h3>Manage your team with reports</h3>
+              <p>
+                Measure what happens with untitled's easy-to-use reports. You
+                can filter, export and drilldown on the data in a couple clicks.
+              </p>
+            </div>
+
+            <div class="analytics-item">
+              <ion-icon name="git-compare-outline"></ion-icon>
+              <h3>Connect with customers</h3>
+              <p>
+                Solve a problem or close a sale in real-time with chat. If no
+                one is available, customers are seamlessly routed to email
+                without confusion.
+              </p>
+            </div>
+
+            <div class="analytics-item">
+              <ion-icon name="analytics-outline"></ion-icon>
+              <h3>Connect the tools you already use</h3>
+              <p>
+                Explore 100+ integrations that makes your day-to-day workflow
+                more efficient and familiar. Plus our extensive developer tools.
+              </p>
+            </div>
+
+            <div class="analytics-item">
+              <ion-icon name="shield-checkmark-outline"></ion-icon>
+              <h3>Our people make the difference</h3>
+              <p>
+                We're an extension of your customer service team, and all of our
+                resources are free. Chat to our friendly team 24/7 when you need
+                help.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="Ads">
+      <div class="Ads-contents">
+        <div class="Ads-logo">
+          <ion-icon name="logo-stencil"></ion-icon>
+          <h5>Stancil</h5>
+        </div>
+        <div class="Ads-text">
+          <h3>
+            We've been using Untitled to kick start every new project and can't
+            imagine working without it.
+          </h3>
+          <div class="Ads-image">
+            <img src="./Assets/images/IMG-20240712-WA0002.jpg" alt="" />
+            <h4>Harrison Wells</h4>
+            <p>Product Manager, Stancil</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faqs" class="faqs-section">
+      <div class="faqs-container">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What is Finora and how does it work?
+          </button>
+          <div class="faq-answer">
+            <p>
+              Finora is a smart banking analytics platform that helps users
+              track, visualize, and optimize their finances.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Is my financial data safe with Finora?
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes. We use bank-grade encryption and privacy practices to protect
+              your sensitive data at all times.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Is there a free trial available?</button>
+          <div class="faq-answer">
+            <p>
+              Absolutely, you can try us for free for 30 days, if you want.
+              we'll provide you with a free personalized 30-minute onboarding
+              call, to get you up and running as soon as possible.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faqs-content">
+        <div class="faqs-images">
+          <img
+            src="https://media.istockphoto.com/id/1170953707/photo/smiling-black-man.jpg?s=612x612&w=0&k=20&c=lKqsRoMExYAnVtIw9fadM84rOPBhI_LVLCuRaBvstvo="
+            alt="Front"
+            class="front-img"
+          />
+          <img
+            src="https://www.shutterstock.com/image-photo/cheerful-handsome-young-african-american-600nw-2566358183.jpg"
+            alt="Behind"
+            class="behind-img behind-img-left"
+          />
+          <img
+            src="https://media.istockphoto.com/id/495827884/photo/you-are-the-creator-of-your-own-success.jpg?s=612x612&w=0&k=20&c=85c3fiwXwTIscqx2O00C2P4MIoWLtmyXRCWoQ5LZ1Cw="
+            alt="Behind"
+            class="behind-img behind-img-right"
+          />
+        </div>
+        <div class="faqs-texts">
+          <h3>Still have questions?</h3>
+          <p>Can't find the answers you're looking for? chat with our team.</p>
+        </div>
+        <div id="contact" class="faqs-cta">
+          <a href="#" class="btn-get-in-touch">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews-section">
+      <h2 class="reviews-title">Our Reviews</h2>
+
+      <div class="swiper reviews-swiper">
+        <div class="swiper-wrapper">
+          <!-- Review Card -->
+          <div class="swiper-slide review-card">
+            <div class="reviewer">
+              <img
+                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8b2ZmaWNlJTIwbWFufGVufDB8fDB8fHww"
+                alt="Reviewer"
+              />
+              <div class="reviewer-info">
+                <h4>
+                  Mark Phillips
+                  <span class="verified"
+                    ><ion-icon name="checkmark-circle-outline"></ion-icon
+                  ></span>
+                </h4>
+                <p>Product Manager</p>
+              </div>
+            </div>
+            <p class="review-text">
+              “Finora helped us unify all our banking insights in one place.
+              It’s powerful and super intuitive.”
+            </p>
+          </div>
+
+          <div class="swiper-slide review-card">
+            <div class="reviewer">
+              <img
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b2ZmaWNlJTIwbWFufGVufDB8fDB8fHww"
+                alt="Reviewer"
+              />
+              <div class="reviewer-info">
+                <h4>
+                  Michael Kim
+                  <span class="verified"
+                    ><ion-icon name="checkmark-circle-outline"></ion-icon
+                  ></span>
+                </h4>
+                <p>UX Designer</p>
+              </div>
+            </div>
+            <p class="review-text">
+              “A must-have analytics tool for any startup. Finora gives us
+              clarity in minutes.”
+            </p>
+          </div>
+
+          <div class="swiper-slide review-card">
+            <div class="reviewer">
+              <img
+                src="https://images.unsplash.com/photo-1627161683077-e34782c24d81?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8b2ZmaWNlJTIwd29tYW58ZW58MHx8MHx8fDA%3D"
+                alt="Reviewer"
+              />
+              <div class="reviewer-info">
+                <h4>
+                  Jane Doe
+                  <span class="verified"
+                    ><ion-icon name="checkmark-circle-outline"></ion-icon
+                  ></span>
+                </h4>
+                <p>Product Manager</p>
+              </div>
+            </div>
+            <p class="review-text">
+              “Finora helped us unify all our banking insights in one place.
+              It’s powerful and super intuitive.”
+            </p>
+          </div>
+
+          <div class="swiper-slide review-card">
+            <div class="reviewer">
+              <img
+                src="https://images.unsplash.com/photo-1611432579402-7037e3e2c1e4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG9mZmljZSUyMHdvbWFufGVufDB8fDB8fHww"
+                alt="Reviewer"
+              />
+              <div class="reviewer-info">
+                <h4>
+                  Jennifer Queen
+                  <span class="verified"
+                    ><ion-icon name="checkmark-circle-outline"></ion-icon
+                  ></span>
+                </h4>
+                <p>Founder HSPC</p>
+              </div>
+            </div>
+            <p class="review-text">
+              “I love using Finora! It has transformed the way we analyze our
+              data.”
+            </p>
+          </div>
+
+          <div class="swiper-slide review-card">
+            <div class="reviewer">
+              <img
+                src="https://images.unsplash.com/photo-1627161684458-a62da52b51c3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8b2ZmaWNlJTIwbWFufGVufDB8fDB8fHww"
+                alt="Reviewer"
+              />
+              <div class="reviewer-info">
+                <h4>
+                  Bryan Smith
+                  <span class="verified"
+                    ><ion-icon name="checkmark-circle-outline"></ion-icon
+                  ></span>
+                </h4>
+                <p>CEO, TechCorp</p>
+              </div>
+            </div>
+            <p class="review-text">
+              “Finora helped us unify all our banking insights in one place.
+              It’s powerful and super intuitive.”
+            </p>
+          </div>
+
+          <div class="swiper-slide review-card">
+            <div class="reviewer">
+              <img
+                src="https://images.unsplash.com/photo-1530268729831-4b0b9e170218?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fG9mZmljZSUyMG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+                alt="Reviewer"
+              />
+              <div class="reviewer-info">
+                <h4>
+                  Samuel Johnson
+                  <span class="verified"
+                    ><ion-icon name="checkmark-circle-outline"></ion-icon
+                  ></span>
+                </h4>
+                <p>Product Manager</p>
+              </div>
+            </div>
+            <p class="review-text">
+              “Finora helped us unify all our banking insights in one place.
+              It’s powerful and super intuitive.”
+            </p>
+          </div>
+        </div>
+
+        <!-- Swiper Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <section
+      id="blog"
+      class="bg-var(--color-bg-primary) dark:bg-var(--color-bg-secondary)"
+    >
+      <div class="container px-6 py-10 mx-auto">
+        <div class="flex items-center justify-between">
+          <h1
+            class="text-2xl font-semibold capitalize lg:text-3xl text-var(--color-text)"
+          >
+            recent posts
+          </h1>
+
+          <button class="focus:outline-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6 text-gray-600 transition-colors duration-300 transform dark:text-gray-400 hover:text-purple-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <hr class="my-8 border-gray-200 dark:border-gray-700" />
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <div>
+            <img
+              class="object-cover object-center w-full h-64 rounded-lg lg:h-80"
+              src="https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+              alt=""
+            />
+
+            <div class="mt-8">
+              <span class="text-var(--color-text) uppercase">category</span>
+
+              <h1 class="mt-4 text-xl font-semibold text-var(--color-text)">
+                What do you want to know about UI
+              </h1>
+
+              <p class="mt-2 text-var(--color-text)">
+                User Interface (UI) is more than just how something looks — it's
+                how it works, how it feels, and how users interact with it.
+                Whether you're curious about layout design, typography, color
+                systems, or how to create intuitive digital experiences,
+                understanding UI is the first step toward building products
+                people love to use.
+              </p>
+
+              <div class="flex items-center justify-between mt-4">
+                <div>
+                  <a
+                    href="#"
+                    class="text-lg font-medium text-var(--color-text) hover:underline hover:text-gray-500"
+                  >
+                    John snow
+                  </a>
+
+                  <p class="text-sm text-var(--color-text)">February 1, 2022</p>
+                </div>
+
+                <a
+                  href="#"
+                  class="inline-block text-purple-500 underline hover:text-purple-400"
+                  >Read more</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <img
+              class="object-cover object-center w-full h-64 rounded-lg lg:h-80"
+              src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+              alt=""
+            />
+
+            <div class="mt-8">
+              <span class="text-var(--color-text) uppercase">category</span>
+
+              <h1 class="mt-4 text-xl font-semibold text-var(--color-text)">
+                All the features you want to know
+              </h1>
+
+              <p class="mt-2 ttext-var(--color-text)">
+                From seamless account integration and real-time analytics to
+                smart budgeting tools and custom reporting, Finora gives you
+                access to all the features you need to stay ahead. Whether
+                you're tracking expenses, analyzing financial trends, or
+                managing multiple accounts — everything you want to know is
+                right at your fingertips.
+              </p>
+
+              <div class="flex items-center justify-between mt-4">
+                <div>
+                  <a
+                    href="#"
+                    class="text-lg font-medium text-var(--color-text) hover:underline hover:text-gray-500"
+                  >
+                    Arthur Melo
+                  </a>
+
+                  <p class="text-sm text-var(--color-text)">February 6, 2022</p>
+                </div>
+
+                <a
+                  href="#"
+                  class="inline-block text-purple-500 underline hover:text-purple-400"
+                  >Read more</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <img
+              class="object-cover object-center w-full h-64 rounded-lg lg:h-80"
+              src="https://images.unsplash.com/photo-1597534458220-9fb4969f2df5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+              alt=""
+            />
+
+            <div class="mt-8">
+              <span class="text-var(--color-text) uppercase">category</span>
+
+              <h1 class="mt-4 text-xl font-semibold text-var(--color-text)">
+                Which services you get from Finora
+              </h1>
+
+              <p class="mt-2 text-var(--color-text)">
+                With Finora, you get a full suite of intelligent banking
+                services — including real-time financial analytics, account
+                aggregation, automated budgeting, spending insights, and
+                personalized financial reports. Our platform is designed to help
+                you make smarter decisions with clarity and confidence.
+              </p>
+
+              <div class="flex items-center justify-between mt-4">
+                <div>
+                  <a
+                    href="#"
+                    class="text-lg font-medium text-var(--color-text) hover:underline hover:text-gray-500"
+                  >
+                    Tom Hank
+                  </a>
+
+                  <p class="text-sm text-var(--color-text)">
+                    February 19, 2022
+                  </p>
+                </div>
+
+                <a
+                  href="#"
+                  class="inline-block text-purple-500 underline hover:text-purple-400"
+                  >Read more</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="contact-container">
+        <div class="contact-info">
+          <h2>Get in Touch with Us</h2>
+          <p>
+            Have a question, partnership idea, or just want to say hello? Our
+            team is here to help you make the most of your experience with
+            Finora.
+          </p>
+
+          <ul class="contact-details">
+            <li>
+              <strong
+                ><ion-icon name="location-outline"></ion-icon> Address:</strong
+              >
+              123 Copper Road, Ikoyi, Lagos, Nigeria
+            </li>
+            <li>
+              <strong><ion-icon name="call-outline"></ion-icon> Phone:</strong>
+              +234 800 123 4567
+            </li>
+            <li>
+              <strong
+                ><ion-icon name="mail-unread-outline"></ion-icon> Email:</strong
+              >
+              support@finora.com
+            </li>
+          </ul>
+          <div class="contact-links">
+            <h3>Follows Us On:</h3>
+            <ul>
+              <li>
+                <a href="#"
+                  ><ion-icon name="logo-facebook"></ion-icon> Facebook</a
+                >
+              </li>
+              <li>
+                <a href="#">
+                  <ion-icon name="logo-twitter"></ion-icon> Twitter</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><ion-icon name="logo-instagram"></ion-icon> Instagram</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><ion-icon name="logo-linkedin"></ion-icon> LinkedIn</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form action="#" method="POST">
+            <input type="text" name="name" placeholder="Full Name" required />
+            <input
+              type="phone"
+              name="phone"
+              placeholder="Phone Number"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              required
+            />
+            <input
+              type="text"
+              name="company"
+              placeholder="Company's Name"
+              required
+            />
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="How can we be of help?"
+              required
+            ></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-white dark:bg-gray-900">
+      <div class="container px-6 py-12 mx-auto">
+        <div class="md:flex md:-mx-3 md:items-center md:justify-between">
+          <h1
+            class="text-xl font-semibold tracking-tight text-gray-800 md:mx-3 xl:text-2xl dark:text-white"
+          >
+            Subscribe our newsletter to get update.
+          </h1>
+
+          <div class="mt-6 md:mx-3 shrink-0 md:mt-0 md:w-auto">
+            <a
+              href="./login.html"
+              class="inline-flex items-center justify-center w-full px-4 py-2 text-sm text-white duration-300 bg-gray-800 rounded-lg gap-x-3 hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80"
+            >
+              <span>Sign Up Now</span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <hr class="my-6 border-gray-200 md:my-10 dark:border-gray-700" />
+
+        <div
+          class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        >
+          <div>
+            <p class="font-semibold text-gray-800 dark:text-white">
+              Quick Link
+            </p>
+
+            <div class="flex flex-col items-start mt-5 space-y-2">
+              <a
+                href="#"
+                class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                >Home</a
+              >
+              <a
+                href="#"
+                class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                >Who We Are</a
+              >
+              <a
+                href="#"
+                class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                >Our Philosophy</a
+              >
+            </div>
+          </div>
+
+          <div>
+            <p class="font-semibold text-gray-800 dark:text-white">
+              Industries
+            </p>
+
+            <div class="flex flex-col items-start mt-5 space-y-2">
+              <a
+                href="#"
+                class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                >Retail & E-Commerce</a
+              >
+              <a
+                href="#"
+                class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                >Information Technology</a
+              >
+              <a
+                href="#"
+                class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                >Finance & Insurance</a
+              >
+            </div>
+          </div>
+
+          <div>
+            <p class="font-semibold text-gray-800 dark:text-white">Services</p>
+
+            <div class="flex flex-col items-start mt-5 space-y-2">
+              <a
+                href="#"
+                class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                >Translation</a
+              >
+              <a
+                href="#"
+                class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                >Proofreading & Editing</a
+              >
+              <a
+                href="#"
+                class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                >Content Creation</a
+              >
+            </div>
+          </div>
+
+          <div>
+            <p class="font-semibold text-gray-800 dark:text-white">
+              Contact Us
+            </p>
+
+            <div class="flex flex-col items-start mt-5 space-y-2">
+              <a
+                href="#"
+                class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                >+880 768 473 4978</a
+              >
+              <a
+                href="#"
+                class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                >info@merakiui.com</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-6 border-gray-200 md:my-10 dark:border-gray-700" />
+
+        <div class="flex flex-col items-center justify-between sm:flex-row">
+          <a href="#">
+            <img
+              class="w-40 h-40"
+              src="./Assets/images/Finora logo 2.png"
+              alt=""
+            />
+          </a>
+
+          <p class="mt-4 text-sm text-gray-500 sm:mt-0 dark:text-gray-300">
+            © Finora 2025. All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+.Ads {
+  padding: 40px 24px;
+  background-color: var(--color-bg-primary, #2c2c2c);
+  color: var(--color-text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.Ads-contents {
+  max-width: 800px;
+  background-color: var(--color-bg-secondary, #ffffff);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.Ads-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
+  color: var(--color-primary);
+  justify-content: center;
+}
+
+.Ads-logo h5 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.Ads-text h3 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  color: var(--color-text);
+  max-width: 700px;
+}
+
+.Ads-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.Ads-image img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-primary);
+}
+
+.Ads-image h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.Ads-image p {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-secondary, #777);
+}
