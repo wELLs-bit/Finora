@@ -45,3 +45,12 @@
 [data-aos] {
   transition-property: opacity, transform;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: rgb(54, 2, 54);
+  /* color: rgb(138, 138, 138); */
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-bg-secondary);
+}
