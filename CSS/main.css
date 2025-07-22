@@ -48,9 +48,9 @@
 
 ::-webkit-scrollbar {
   width: 10px;
-  background: rgb(54, 2, 54);
+  background: #333333;
   /* color: rgb(138, 138, 138); */
 }
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-bg-secondary);
+  background-color: #6A0DAD;
 }
