@@ -1,0 +1,133 @@
+.footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  color: var(--text);
+  padding: 3rem 1.5rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Newsletter */
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.newsletter h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.newsletter-form {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-primary);
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+  color: var(--text);
+  outline: none;
+}
+
+.newsletter-form input:focus {
+  border-color: var(--color-primary);
+}
+
+.newsletter-form button {
+  padding: 0.5rem 1.5rem;
+  background: var(--primary);
+  color: var(--text);
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary);
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.newsletter-form button:hover {
+  background: var(--primary-hover);
+}
+
+
+.footer hr {
+  margin: 2.5rem 0;
+  border: none;
+  border-top: 1px solid var(--color-primary);
+}
+
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+}
+
+.footer-links .title {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+}
+
+.social-icons a {
+  transition: color 0.3s;
+}
+
+.social-icons a:nth-child(1):hover { color: #1877F2; }
+.social-icons a:nth-child(2):hover { color: #1DA1F2; }
+.social-icons a:nth-child(3):hover { color: #0077B5; }
+.social-icons a:nth-child(4):hover { color: #E4405F; }
+
+/* Copyright */
+.footer .copyright {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  padding-top: 2rem;
+  text-align: center;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .newsletter {
+    flex-direction: row;
+  }
+}

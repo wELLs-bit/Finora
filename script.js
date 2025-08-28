@@ -63,20 +63,74 @@ window.onload = () => {
     },
   });
 
-    // const form = document.getElementById("contact-form");
-    // const successMessage = document.getElementById("success-message");
+  //Modal
+  function openModal(id) {
+    document.getElementById(id).classList.add("active");
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove("active");
+  }
 
-    // form.addEventListener("submit", function (e) {
-    //   e.preventDefault(); // Stop form from submitting for now
+// Loging
+    document.addEventListener('DOMContentLoaded', () => {
+    const openLogin = document.getElementById('openLogin');
+    const modal = document.getElementById('loginModal');
+    const closeModalBtn = document.getElementById('closeModal');
+    const authForm = document.getElementById('authForm');
+    const authTitle = document.getElementById('authTitle');
+    const toggleAuth = document.getElementById('toggleAuth');
 
-    //   // Show success message
-    //   successMessage.classList.add("show");
+    if (openLogin && modal && closeModalBtn) {
+      openLogin.addEventListener('click', (e) => {
+        e.preventDefault();                 // stop anchor navigation
+        modal.classList.add('is-open');     // show modal
+        modal.setAttribute('aria-hidden', 'false');
+      });
 
-    //   // Reset form fields
-    //   form.reset();
+      closeModalBtn.addEventListener('click', () => {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      });
 
-    //   // Auto-hide after 5 seconds
-    //   setTimeout(() => {
-    //     successMessage.classList.remove("show");
-    //   }, 5000);
-    // });
+      // click outside dialog closes
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('is-open');
+          modal.setAttribute('aria-hidden', 'true');
+        }
+      });
+    }
+
+    // Toggle Login/Signup (no re-binding issues)
+    if (toggleAuth && authTitle) {
+      let isLogin = true;
+      toggleAuth.addEventListener('click', (e) => {
+        e.preventDefault();
+        isLogin = !isLogin;
+        authTitle.textContent = isLogin ? 'Login' : 'Sign Up';
+        // switch submit button text
+        const btn = authForm?.querySelector('button[type="submit"]');
+        if (btn) btn.textContent = isLogin ? 'Login' : 'Sign Up';
+        // switch helper text
+        const p = document.querySelector('.auth-toggle');
+        if (p) {
+          p.innerHTML = isLogin
+            ? `Don't have an account? <a href="#" id="toggleAuth">Sign Up</a>`
+            : `Already have an account? <a href="#" id="toggleAuth">Login</a>`;
+          // re-bind the toggler because innerHTML replaced the element
+          const newToggle = document.getElementById('toggleAuth');
+          newToggle.addEventListener('click', (evt) => toggleAuth.dispatchEvent(new Event('click', {bubbles: true})));
+        }
+      });
+    }
+
+    // Handle submit → save username and redirect to dashboard
+    if (authForm) {
+      authForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = (document.getElementById('username')?.value || 'User').trim();
+        localStorage.setItem('finoraUser', username || 'User');
+        window.location.href = 'dashboard.html';
+      });
+    }
+  });

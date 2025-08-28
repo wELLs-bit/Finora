@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finora Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --color-primary: #6A0DAD;
+      --color-bg: #f5f7fb;
+      --color-card: #fff;
+      --color-text: #1a1a1a;
+      --color-secondary: #4a4a4a;
+    }
+
+    [data-theme="dark"] {
+      --color-primary: #B983FF;
+      --color-bg: #121212;
+      --color-card: #1e1e1e;
+      --color-text: #fff;
+      --color-secondary: #ccc;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--color-card);
+      padding: 1rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .navbar .title {
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .navbar .profile {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+
+    .navbar .profile img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+    }
+
+    /* Dashboard content */
+    .dashboard {
+      padding: 1.5rem;
+    }
+
+    .welcome {
+      margin-bottom: 1.5rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: var(--color-card);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      font-size: 1.5rem;
+      margin: .5rem 0 0;
+    }
+
+    .positive { color: #4caf50; font-size: 0.85rem; }
+    .negative { color: #f44336; font-size: 0.85rem; }
+
+    /* Charts section */
+    .charts {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1rem;
+    }
+
+    .chart-card {
+      background: var(--color-card);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    canvas {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="title">📊 Dashboard</div>
+    <div class="profile">
+      <span>John Doe</span>
+      <img src="https://i.pravatar.cc/35" alt="profile">
+    </div>
+  </nav>
+
+  <!-- Dashboard content -->
+  <div class="dashboard">
+    <div class="welcome">
+      <h2>Welcome back, John!</h2>
+      <p>Here’s what’s happening with your business today.</p>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="cards">
+      <div class="card">
+        <h3>Total Revenue</h3>
+        <p>$45,231</p>
+        <div class="positive">▲ +12.5%</div>
+      </div>
+      <div class="card">
+        <h3>Active Users</h3>
+        <p>8,421</p>
+        <div class="positive">▲ +8.2%</div>
+      </div>
+      <div class="card">
+        <h3>Orders</h3>
+        <p>1,247</p>
+        <div class="negative">▼ -3.1%</div>
+      </div>
+      <div class="card">
+        <h3>Conversion Rate</h3>
+        <p>3.24%</p>
+        <div class="positive">▲ +0.8%</div>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts">
+      <div class="chart-card">
+        <h3>Revenue Overview</h3>
+        <canvas id="revenueChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>Traffic Sources</h3>
+        <canvas id="trafficChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart.js Scripts -->
+  <script>
+    // Revenue Line Chart
+    new Chart(document.getElementById("revenueChart"), {
+      type: 'line',
+      data: {
+        labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+        datasets: [{
+          label: "Revenue",
+          data: [12000,19000,15000,25000,22000,30000,28000,32000,35000,39000,42000,45000],
+          borderColor: "#6A0DAD",
+          backgroundColor: "rgba(106,13,173,0.2)",
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    // Traffic Doughnut Chart
+    new Chart(document.getElementById("trafficChart"), {
+      type: 'doughnut',
+      data: {
+        labels: ["Desktop","Mobile","Tablet"],
+        datasets: [{
+          data: [60,25,15],
+          backgroundColor: ["#3f51b5","#4caf50","#ff9800"]
+        }]
+      },
+      options: { responsive: true, maintainAspectRatio: false }
+    });
+  </script>
+</body>
+</html>
