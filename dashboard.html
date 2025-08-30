@@ -4,7 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Finora Dashboard</title>
+  <link rel="stylesheet" href="./CSS/main.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   <style>
     :root {
       --color-primary: #6A0DAD;
@@ -110,22 +119,98 @@
     canvas {
       max-width: 100%;
     }
+    /* Transactions Section */
+.dashboard-transactions {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #272727;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-transactions h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #dbdbdb;
+}
+
+/* Transactions Table */
+.dashboard-transactions table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dashboard-transactions th,
+.dashboard-transactions td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+}
+
+.dashboard-transactions th {
+  color: #dbdbdb;
+  font-weight: 500;
+}
+
+.dashboard-transactions td {
+  color: #dbdbdb;
+}
+
+/* Status Tags */
+.status {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.status.success {
+  background: #dcfce7;
+  color: #15803d;
+}
+.status.pending {
+  background: #fef9c3;
+  color: #b45309;
+}
+.status.failed {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Footer */
+.dashboard-footer {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  color: #8409a3;
+  font-size: 0.9rem;
+  /* background: #dbdbdb; */
+  border-top: 1px solid #e5e7eb;
+}
+
   </style>
 </head>
 <body data-theme="dark">
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="title">📊 Dashboard</div>
+    <div class="title"><a href="./index.html">Home</a></div>
+     <!-- <div class="theme-toggle-container">
+    <input type="checkbox" id="theme-toggle" />
+    <label for="theme-toggle" class="label"></label>
+  </div> -->
+    <div class="title">Dashboard</div>
+  
     <div class="profile">
-      <span>John Doe</span>
-      <img src="https://i.pravatar.cc/35" alt="profile">
+      <span></span>
+      <img src="./Assets/images/IMG-20240712-WA0002.jpg" alt="profile">
     </div>
   </nav>
 
   <!-- Dashboard content -->
   <div class="dashboard">
     <div class="welcome">
-      <h2>Welcome back, John!</h2>
+      <h2>Welcome back, Harry!</h2>
       <p>Here’s what’s happening with your business today.</p>
     </div>
 
@@ -154,49 +239,128 @@
     </div>
 
     <!-- Charts -->
-    <div class="charts">
-      <div class="chart-card">
-        <h3>Revenue Overview</h3>
-        <canvas id="revenueChart"></canvas>
-      </div>
-      <div class="chart-card">
-        <h3>Traffic Sources</h3>
-        <canvas id="trafficChart"></canvas>
-      </div>
+<div class="charts">
+  <div class="chart-card">
+    <h3>Revenue Overview</h3>
+    <div class="chart-wrapper">
+      <canvas id="revenueChart"></canvas>
     </div>
   </div>
+  <div class="chart-card">
+    <h3>Traffic Sources</h3>
+    <div class="chart-wrapper">
+      <canvas id="trafficChart"></canvas>
+    </div>
+  </div>
+</div>
+
+<section class="dashboard-transactions">
+  <h2>Recent Transactions</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Aug 28, 2025</td>
+        <td>Payment to Netflix</td>
+        <td>- ₦5,000</td>
+        <td><span class="status success">Completed</span></td>
+      </tr>
+      <tr>
+        <td>Aug 25, 2025</td>
+        <td>Salary Credit</td>
+        <td>+ ₦150,000</td>
+        <td><span class="status success">Completed</span></td>
+      </tr>
+      <tr>
+        <td>Aug 20, 2025</td>
+        <td>POS Withdrawal</td>
+        <td>- ₦10,000</td>
+        <td><span class="status pending">Pending</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Footer -->
+<footer class="dashboard-footer">
+  <p>© 2025 Finora. All rights reserved.</p>
+</footer>
 
   <!-- Chart.js Scripts -->
   <script>
-    // Revenue Line Chart
-    new Chart(document.getElementById("revenueChart"), {
-      type: 'line',
-      data: {
-        labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-        datasets: [{
-          label: "Revenue",
-          data: [12000,19000,15000,25000,22000,30000,28000,32000,35000,39000,42000,45000],
-          borderColor: "#6A0DAD",
-          backgroundColor: "rgba(106,13,173,0.2)",
-          fill: true,
-          tension: 0.3
-        }]
+   // Revenue Line Chart
+  new Chart(document.getElementById("revenueChart"), {
+    type: 'line',
+    data: {
+      labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+      datasets: [{
+        label: "Revenue",
+        data: [12000,19000,15000,25000,22000,30000,28000,32000,35000,39000,42000,45000],
+        borderColor: "#6A0DAD",
+        backgroundColor: "rgba(106,13,173,0.15)",
+        pointBackgroundColor: "#6A0DAD",
+        pointRadius: 4,
+        fill: true,
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          backgroundColor: "rgba(0,0,0,0.8)",
+          titleFont: { size: 14, weight: "bold" },
+          bodyFont: { size: 13 }
+        }
       },
-      options: { responsive: true, maintainAspectRatio: false }
-    });
+      scales: {
+        x: {
+          grid: { color: "rgba(255,255,255,0.05)" },
+          ticks: { color: "var(--color-secondary)" }
+        },
+        y: {
+          grid: { color: "rgba(255,255,255,0.05)" },
+          ticks: { color: "var(--color-secondary)" }
+        }
+      }
+    }
+  });
 
-    // Traffic Doughnut Chart
-    new Chart(document.getElementById("trafficChart"), {
-      type: 'doughnut',
-      data: {
-        labels: ["Desktop","Mobile","Tablet"],
-        datasets: [{
-          data: [60,25,15],
-          backgroundColor: ["#3f51b5","#4caf50","#ff9800"]
-        }]
-      },
-      options: { responsive: true, maintainAspectRatio: false }
-    });
+  // Traffic Doughnut Chart
+  new Chart(document.getElementById("trafficChart"), {
+    type: 'doughnut',
+    data: {
+      labels: ["Desktop","Mobile","Tablet"],
+      datasets: [{
+        data: [60,25,15],
+        backgroundColor: ["#3f51b5","#4caf50","#ff9800"],
+        borderWidth: 2,
+        borderColor: "var(--color-bg)"
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: "bottom",
+          labels: { color: "var(--color-secondary)" }
+        }
+      }
+    }
+  });
   </script>
+  <script src="./script.js"></script>
 </body>
 </html>

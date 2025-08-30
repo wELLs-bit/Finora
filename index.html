@@ -34,6 +34,158 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
+    <style>
+      .auth-menu {
+  position: relative;
+  display: inline-block;
+}
+
+#authDropdown {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: rgb(248, 248, 248);
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  list-style: none;
+  padding: 8px 0;
+  min-width: 150px;
+  z-index: 1000;
+}
+
+#authDropdown li {
+  padding: 8px 16px;
+}
+
+#authDropdown li a {
+  text-decoration: none;
+  color: var(--color-primary);
+  display: block;
+}
+
+/* Overlay */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+.modal.is-open {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Dialog box */
+.modal-dialog {
+  background: #fff;
+  padding: 2rem 1.8rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+  position: relative;
+  animation: slideUp 0.35s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s ease;
+}
+.modal-close:hover {
+  color: #111;
+}
+
+/* Title */
+#authTitle {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Input fields */
+#authForm input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #f9fafb;
+  transition: border 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+#authForm input:focus {
+  border-color: #6A0DAD;
+  outline: none;
+  background: #fff;
+  box-shadow: 0 0 0 3px #6A0DAD;
+}
+
+/* Button */
+#authForm button {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6A0DAD, #1e40af);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+#authForm button:hover {
+  background: linear-gradient(135deg, #6A0DAD, #1e3a8a);
+  transform: translateY(-1px);
+}
+#authForm button:active {
+  transform: translateY(1px);
+}
+
+/* Toggle text */
+.auth-toggle {
+  text-align: center;
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+.auth-toggle a {
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: none;
+}
+.auth-toggle a:hover {
+  text-decoration: underline;
+}
+
+
+    </style>
   </head>
   <body>
     <!-- NavBar -->
@@ -54,16 +206,24 @@
         <li><a href="#contact">CONTACT</a></li>
       </ul>
 
-      <div class="navbar-actions">
-        <div class="theme-toggle-container">
-          <input type="checkbox" id="theme-toggle" />
-          <label for="theme-toggle" class="label"></label>
-        </div>
-        <a href="" class="btn-login" id="openLogin">Login</a>
-      </div>
-    </nav>
-    
-      <!-- Login/Signup Modal -->
+ <div class="navbar-actions">
+  <div class="theme-toggle-container">
+    <input type="checkbox" id="theme-toggle" />
+    <label for="theme-toggle" class="label"></label>
+  </div>
+
+  <!-- Auth Button -->
+  <div class="auth-menu">
+    <a href="#" class="btn-login" id="authBtn">Login</a>
+    <ul class="dropdown" id="authDropdown">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="#" id="signOut">Sign Out</a></li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+<!-- Login/Signup Modal -->
 <div class="modal" id="loginModal" aria-hidden="true" role="dialog" aria-labelledby="authTitle">
   <div class="modal-dialog" role="document">
     <button class="modal-close" id="closeModal" aria-label="Close">&times;</button>
@@ -76,11 +236,11 @@
     </form>
 
     <p class="auth-toggle">
-      Don't have an account?
-      <a href="#" id="toggleAuth">Sign Up</a>
+      Don't have an account? <a href="#" id="toggleAuth">Sign Up</a>
     </p>
   </div>
 </div>
+
 
     <!-- Home Section -->
     <section id="home" class="hero">
