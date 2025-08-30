@@ -73,7 +73,10 @@
     }
 
     .welcome {
-      margin-bottom: 1.5rem;
+      margin-top: 4rem;
+    }
+    .welcome p {
+      margin-bottom: 1rem;
     }
 
     .cards {
@@ -188,7 +191,43 @@
   /* background: #dbdbdb; */
   border-top: 1px solid #e5e7eb;
 }
+@media (max-width: 768px) {
+  .dashboard-transactions table,
+  .dashboard-transactions thead,
+  .dashboard-transactions tbody,
+  .dashboard-transactions th,
+  .dashboard-transactions td,
+  .dashboard-transactions tr {
+    display: block;
+  }
 
+  .dashboard-transactions thead {
+    display: none;
+  }
+
+  .dashboard-transactions tr {
+    margin-bottom: 1rem;
+    background: #242424;
+    border-radius: 8px;
+    border: 1px solid #3d0b49;
+    padding: 0.75rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  .dashboard-transactions td {
+    padding: 8px 10px;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+  }
+
+  .dashboard-transactions td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #6b7280;
+  }
+}
   </style>
 </head>
 <body data-theme="dark">
@@ -210,7 +249,7 @@
   <!-- Dashboard content -->
   <div class="dashboard">
     <div class="welcome">
-      <h2>Welcome back, Harry!</h2>
+      <h2>Welcome back!</h2>
       <p>Here’s what’s happening with your business today.</p>
     </div>
 
@@ -266,25 +305,26 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Aug 28, 2025</td>
-        <td>Payment to Netflix</td>
-        <td>- ₦5,000</td>
-        <td><span class="status success">Completed</span></td>
-      </tr>
-      <tr>
-        <td>Aug 25, 2025</td>
-        <td>Salary Credit</td>
-        <td>+ ₦150,000</td>
-        <td><span class="status success">Completed</span></td>
-      </tr>
-      <tr>
-        <td>Aug 20, 2025</td>
-        <td>POS Withdrawal</td>
-        <td>- ₦10,000</td>
-        <td><span class="status pending">Pending</span></td>
-      </tr>
-    </tbody>
+  <tr>
+    <td data-label="Date">Aug 28, 2025</td>
+    <td data-label="Description">Payment to Netflix</td>
+    <td data-label="Amount">- ₦5,000</td>
+    <td data-label="Status"><span class="status success">Completed</span></td>
+  </tr>
+  <tr>
+    <td data-label="Date">Aug 25, 2025</td>
+    <td data-label="Description">Salary Credit</td>
+    <td data-label="Amount">+ ₦150,000</td>
+    <td data-label="Status"><span class="status success">Completed</span></td>
+  </tr>
+  <tr>
+    <td data-label="Date">Aug 20, 2025</td>
+    <td data-label="Description">POS Withdrawal</td>
+    <td data-label="Amount">- ₦10,000</td>
+    <td data-label="Status"><span class="status pending">Pending</span></td>
+  </tr>
+</tbody>
+
   </table>
 </section>
 
