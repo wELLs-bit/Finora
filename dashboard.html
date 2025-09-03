@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Finora Dashboard</title>
-  <link rel="stylesheet" href="./CSS/main.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-     <script
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link
+      rel="shortcut icon"
+      href="./Assets/images/ChatGPT Image Jul 11, 2025, 11_43_44 AM.png"
+      type="image/x-icon"
+    />
+    <title>Finora Dashboard</title>
+    <link rel="stylesheet" href="./CSS/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
     ></script>
@@ -14,393 +19,467 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-  <style>
-    :root {
-      --color-primary: #6A0DAD;
-      --color-bg: #f5f7fb;
-      --color-card: #fff;
-      --color-text: #1a1a1a;
-      --color-secondary: #4a4a4a;
-    }
+    <style>
+      :root {
+        --color-primary: #6a0dad;
+        --color-bg: #f5f7fb;
+        --color-card: #fff;
+        --color-text: #1a1a1a;
+        --color-secondary: #4a4a4a;
+      }
 
-    [data-theme="dark"] {
-      --color-primary: #B983FF;
-      --color-bg: #121212;
-      --color-card: #1e1e1e;
-      --color-text: #fff;
-      --color-secondary: #ccc;
-    }
+      [data-theme="dark"] {
+        --color-primary: #b983ff;
+        --color-bg: #121212;
+        --color-card: #1e1e1e;
+        --color-text: #fff;
+        --color-secondary: #ccc;
+      }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--color-bg);
-      color: var(--color-text);
-    }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: var(--color-bg);
+        color: var(--color-text);
+      }
 
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: var(--color-card);
-      padding: 1rem;
-      border-bottom: 1px solid #ddd;
-    }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--color-card);
+        padding: 1rem;
+        border-bottom: 1px solid #ddd;
+      }
 
-    .navbar .title {
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-    }
+      .navbar .title {
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .navbar .title a {
+        text-decoration: none;
+        color: var(--color-text);
+        font-size: 1.2rem;
+      }
 
-    .navbar .profile {
-      display: flex;
-      align-items: center;
-      gap: .8rem;
-    }
+      .navbar .profile {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
 
-    .navbar .profile img {
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-    }
+      .navbar .profile img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+      }
 
-    /* Dashboard content */
-    .dashboard {
-      padding: 1.5rem;
-    }
+      .dashboard {
+        padding: 1.5rem;
+      }
 
-    .welcome {
-      margin-top: 4rem;
-    }
-    .welcome p {
-      margin-bottom: 1rem;
-    }
+      .welcome {
+        margin-top: 4rem;
+      }
+      .welcome p {
+        margin-bottom: 1rem;
+      }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
 
-    .card {
-      background: var(--color-card);
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
+      .card {
+        background: var(--color-card);
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      }
+      .card:hover,
+      .chart-card:hover {
+        transform: scale(1.02);
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }
 
-    .card h3 {
-      margin: 0;
-      font-size: 1.2rem;
-    }
+      .card h3 {
+        margin: 0;
+        font-size: 1rem;
+      }
 
-    .card p {
-      font-size: 1.5rem;
-      margin: .5rem 0 0;
-    }
+      .card p {
+        font-size: 1rem;
+        margin: 0.5rem 0 0;
+      }
 
-    .positive { color: #4caf50; font-size: 0.85rem; }
-    .negative { color: #f44336; font-size: 0.85rem; }
+      .positive {
+        color: #4caf50;
+        font-size: 0.85rem;
+      }
+      .negative {
+        color: #f44336;
+        font-size: 0.85rem;
+      }
 
-    /* Charts section */
-    .charts {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 1rem;
-    }
+      /* Charts section */
+      .charts {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 1rem;
+      }
 
-    .chart-card {
-      background: var(--color-card);
-      padding: 1rem;
-      border-radius: 10px;
-    }
+      .chart-card {
+        background: var(--color-card);
+        padding: 1rem;
+        border-radius: 10px;
+      }
 
-    canvas {
-      max-width: 100%;
-    }
-    /* Transactions Section */
-.dashboard-transactions {
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background: #272727;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-}
+      canvas {
+        max-width: 100%;
+      }
+      /* Transactions Section */
+      .dashboard-transactions {
+        margin: 2rem auto;
+        padding: 1.5rem;
+        background: #272727;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      }
 
-.dashboard-transactions h2 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #dbdbdb;
-}
+      .dashboard-transactions h2 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #dbdbdb;
+      }
 
-/* Transactions Table */
-.dashboard-transactions table {
-  width: 100%;
-  border-collapse: collapse;
-}
+      /* Transactions Table */
+      .dashboard-transactions table {
+        width: 100%;
+        border-collapse: collapse;
+      }
 
-.dashboard-transactions th,
-.dashboard-transactions td {
-  text-align: left;
-  padding: 12px 14px;
-  border-bottom: 1px solid #e5e7eb;
-  font-size: 0.95rem;
-}
+      .dashboard-transactions th,
+      .dashboard-transactions td {
+        text-align: left;
+        padding: 12px 14px;
+        border-bottom: 1px solid #e5e7eb;
+        font-size: 0.95rem;
+      }
 
-.dashboard-transactions th {
-  color: #dbdbdb;
-  font-weight: 500;
-}
+      .dashboard-transactions th {
+        color: #dbdbdb;
+        font-weight: 500;
+      }
 
-.dashboard-transactions td {
-  color: #dbdbdb;
-}
+      .dashboard-transactions td {
+        color: #dbdbdb;
+      }
 
-/* Status Tags */
-.status {
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-.status.success {
-  background: #dcfce7;
-  color: #15803d;
-}
-.status.pending {
-  background: #fef9c3;
-  color: #b45309;
-}
-.status.failed {
-  background: #fee2e2;
-  color: #b91c1c;
-}
+      /* Status Tags */
+      .status {
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+      .status.success {
+        background: #dcfce7;
+        color: #15803d;
+      }
+      .status.pending {
+        background: #fef9c3;
+        color: #b45309;
+      }
+      .status.failed {
+        background: #fee2e2;
+        color: #b91c1c;
+      }
 
-/* Footer */
-.dashboard-footer {
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-  color: #8409a3;
-  font-size: 0.9rem;
-  /* background: #dbdbdb; */
-  border-top: 1px solid #e5e7eb;
-}
-@media (max-width: 768px) {
-  .dashboard-transactions table,
-  .dashboard-transactions thead,
-  .dashboard-transactions tbody,
-  .dashboard-transactions th,
-  .dashboard-transactions td,
-  .dashboard-transactions tr {
-    display: block;
-  }
+      /* Footer */
+      .dashboard-footer {
+        text-align: center;
+        padding: 1rem;
+        margin-top: 2rem;
+        color: #8409a3;
+        font-size: 0.9rem;
+        /* background: #dbdbdb; */
+        border-top: 1px solid #e5e7eb;
+      }
+      #themeToggle ion-icon {
+        font-size: 1.2rem;
+        color: var(--color-primary);
+        border: none;
+        background: transparent;
+        cursor: pointer;
+      }
 
-  .dashboard-transactions thead {
-    display: none;
-  }
-
-  .dashboard-transactions tr {
-    margin-bottom: 1rem;
-    background: #242424;
-    border-radius: 8px;
-    border: 1px solid #3d0b49;
-    padding: 0.75rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  }
-
-  .dashboard-transactions td {
-    padding: 8px 10px;
-    border: none;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-  }
-
-  .dashboard-transactions td::before {
-    content: attr(data-label);
-    font-weight: 600;
-    color: #6b7280;
-  }
-}
-  </style>
-</head>
-<body data-theme="dark">
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="title"><a href="./index.html">Home</a></div>
-     <!-- <div class="theme-toggle-container">
-    <input type="checkbox" id="theme-toggle" />
-    <label for="theme-toggle" class="label"></label>
-  </div> -->
-    <div class="title">Dashboard</div>
-  
-    <div class="profile">
-      <span></span>
-      <img src="./Assets/images/IMG-20240712-WA0002.jpg" alt="profile">
-    </div>
-  </nav>
-
-  <!-- Dashboard content -->
-  <div class="dashboard">
-    <div class="welcome">
-      <h2>Welcome back!</h2>
-      <p>Here’s what’s happening with your business today.</p>
-    </div>
-
-    <!-- KPI Cards -->
-    <div class="cards">
-      <div class="card">
-        <h3>Total Revenue</h3>
-        <p>$45,231</p>
-        <div class="positive">▲ +12.5%</div>
-      </div>
-      <div class="card">
-        <h3>Active Users</h3>
-        <p>8,421</p>
-        <div class="positive">▲ +8.2%</div>
-      </div>
-      <div class="card">
-        <h3>Orders</h3>
-        <p>1,247</p>
-        <div class="negative">▼ -3.1%</div>
-      </div>
-      <div class="card">
-        <h3>Conversion Rate</h3>
-        <p>3.24%</p>
-        <div class="positive">▲ +0.8%</div>
-      </div>
-    </div>
-
-    <!-- Charts -->
-<div class="charts">
-  <div class="chart-card">
-    <h3>Revenue Overview</h3>
-    <div class="chart-wrapper">
-      <canvas id="revenueChart"></canvas>
-    </div>
-  </div>
-  <div class="chart-card">
-    <h3>Traffic Sources</h3>
-    <div class="chart-wrapper">
-      <canvas id="trafficChart"></canvas>
-    </div>
-  </div>
-</div>
-
-<section class="dashboard-transactions">
-  <h2>Recent Transactions</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Description</th>
-        <th>Amount</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-  <tr>
-    <td data-label="Date">Aug 28, 2025</td>
-    <td data-label="Description">Payment to Netflix</td>
-    <td data-label="Amount">- ₦5,000</td>
-    <td data-label="Status"><span class="status success">Completed</span></td>
-  </tr>
-  <tr>
-    <td data-label="Date">Aug 25, 2025</td>
-    <td data-label="Description">Salary Credit</td>
-    <td data-label="Amount">+ ₦150,000</td>
-    <td data-label="Status"><span class="status success">Completed</span></td>
-  </tr>
-  <tr>
-    <td data-label="Date">Aug 20, 2025</td>
-    <td data-label="Description">POS Withdrawal</td>
-    <td data-label="Amount">- ₦10,000</td>
-    <td data-label="Status"><span class="status pending">Pending</span></td>
-  </tr>
-</tbody>
-
-  </table>
-</section>
-
-<!-- Footer -->
-<footer class="dashboard-footer">
-  <p>© 2025 Finora. All rights reserved.</p>
-</footer>
-
-  <!-- Chart.js Scripts -->
-  <script>
-   // Revenue Line Chart
-  new Chart(document.getElementById("revenueChart"), {
-    type: 'line',
-    data: {
-      labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-      datasets: [{
-        label: "Revenue",
-        data: [12000,19000,15000,25000,22000,30000,28000,32000,35000,39000,42000,45000],
-        borderColor: "#6A0DAD",
-        backgroundColor: "rgba(106,13,173,0.15)",
-        pointBackgroundColor: "#6A0DAD",
-        pointRadius: 4,
-        fill: true,
-        tension: 0.4
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          display: false
-        },
-        tooltip: {
-          backgroundColor: "rgba(0,0,0,0.8)",
-          titleFont: { size: 14, weight: "bold" },
-          bodyFont: { size: 13 }
+      @media (max-width: 768px) {
+        .dashboard-transactions table,
+        .dashboard-transactions thead,
+        .dashboard-transactions tbody,
+        .dashboard-transactions th,
+        .dashboard-transactions td,
+        .dashboard-transactions tr {
+          display: block;
         }
-      },
-      scales: {
-        x: {
-          grid: { color: "rgba(255,255,255,0.05)" },
-          ticks: { color: "var(--color-secondary)" }
-        },
-        y: {
-          grid: { color: "rgba(255,255,255,0.05)" },
-          ticks: { color: "var(--color-secondary)" }
+
+        .dashboard-transactions thead {
+          display: none;
+        }
+
+        .dashboard-transactions tr {
+          margin-bottom: 1rem;
+          background: #242424;
+          border-radius: 8px;
+          border: 1px solid #3d0b49;
+          padding: 0.75rem;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .dashboard-transactions td {
+          padding: 8px 10px;
+          border: none;
+          display: flex;
+          justify-content: space-between;
+          font-size: 0.9rem;
+        }
+
+        .dashboard-transactions td::before {
+          content: attr(data-label);
+          font-weight: 600;
+          color: #6b7280;
         }
       }
-    }
-  });
+    </style>
+  </head>
+  <body data-theme="dark">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="title">
+        <ion-icon name="home-outline"></ion-icon>
+        <a href="./index.html">Home</a>
+      </div>
 
-  // Traffic Doughnut Chart
-  new Chart(document.getElementById("trafficChart"), {
-    type: 'doughnut',
-    data: {
-      labels: ["Desktop","Mobile","Tablet"],
-      datasets: [{
-        data: [60,25,15],
-        backgroundColor: ["#3f51b5","#4caf50","#ff9800"],
-        borderWidth: 2,
-        borderColor: "var(--color-bg)"
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          position: "bottom",
-          labels: { color: "var(--color-secondary)" }
-        }
+      <div class="title">Dashboard</div>
+
+      <div class="profile">
+        <div class="theme-toggle-container">
+          <input type="checkbox" id="theme-toggle" />
+          <label for="theme-toggle" class="label"></label>
+        </div>
+        <span></span>
+        <img src="./Assets/images/placeholder.jpg" alt="profile" />
+      </div>
+    </nav>
+
+    <!-- Dashboard content -->
+    <div class="dashboard">
+      <div class="welcome">
+        <h2>Welcome back!</h2>
+        <p>Here’s what’s happening with your business today.</p>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="cards">
+        <div class="card analysis-card">
+          <h3>Sales Overview</h3>
+          <p>Total Revenue: <strong>$124,500</strong></p>
+          <p>Growth: <span style="color: green">+12.5%</span> this month</p>
+        </div>
+
+        <div class="card analysis-card">
+          <h3>User Engagement</h3>
+          <p>Active Users: <strong>8,430</strong></p>
+          <p>Avg. Session Duration: 5m 42s</p>
+        </div>
+
+        <div class="card analysis-card">
+          <h3>Conversion Rate</h3>
+          <p>Leads Converted: <strong>378</strong></p>
+          <p>Rate: <span style="color: green">4.3%</span> (up from 3.9%)</p>
+        </div>
+
+        <div class="card analysis-card">
+          <h3>System Health</h3>
+          <p>Status: <span style="color: green">Operational</span></p>
+          <p>Uptime: 99.98% this month</p>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <div class="charts">
+        <div class="chart-card">
+          <h3>Revenue Overview</h3>
+          <div class="chart-wrapper">
+            <canvas id="revenueChart"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <h3>Traffic Sources</h3>
+          <div class="chart-wrapper">
+            <canvas id="trafficChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <section class="dashboard-transactions">
+        <h2>Recent Transactions</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Date">Aug 28, 2025</td>
+              <td data-label="Description">Payment to Netflix</td>
+              <td data-label="Amount">- ₦5,000</td>
+              <td data-label="Status">
+                <span class="status success">Completed</span>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Date">Aug 25, 2025</td>
+              <td data-label="Description">Salary Credit</td>
+              <td data-label="Amount">+ ₦150,000</td>
+              <td data-label="Status">
+                <span class="status success">Completed</span>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="Date">Aug 20, 2025</td>
+              <td data-label="Description">POS Withdrawal</td>
+              <td data-label="Amount">- ₦10,000</td>
+              <td data-label="Status">
+                <span class="status pending">Pending</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+      <p>© 2025 Finora. All rights reserved.</p>
+    </footer>
+
+    <!-- Chart.js Scripts -->
+    <script>
+      // Revenue Line Chart
+      new Chart(document.getElementById("revenueChart"), {
+        type: "line",
+        data: {
+          labels: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          datasets: [
+            {
+              label: "Revenue",
+              data: [
+                12000, 19000, 15000, 25000, 22000, 30000, 28000, 32000, 35000,
+                39000, 42000, 45000,
+              ],
+              borderColor: "#6A0DAD",
+              backgroundColor: "rgba(106,13,173,0.15)",
+              pointBackgroundColor: "#6A0DAD",
+              pointRadius: 4,
+              fill: true,
+              tension: 0.4,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              backgroundColor: "rgba(0,0,0,0.8)",
+              titleFont: { size: 14, weight: "bold" },
+              bodyFont: { size: 13 },
+            },
+          },
+          scales: {
+            x: {
+              grid: { color: "rgba(255,255,255,0.05)" },
+              ticks: { color: "var(--color-secondary)" },
+            },
+            y: {
+              grid: { color: "rgba(255,255,255,0.05)" },
+              ticks: { color: "var(--color-secondary)" },
+            },
+          },
+        },
+      });
+
+      // Traffic Doughnut Chart
+      new Chart(document.getElementById("trafficChart"), {
+        type: "doughnut",
+        data: {
+          labels: ["Desktop", "Mobile", "Tablet"],
+          datasets: [
+            {
+              data: [60, 25, 15],
+              backgroundColor: ["#3f51b5", "#4caf50", "#ff9800"],
+              borderWidth: 2,
+              borderColor: "var(--color-bg)",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: "bottom",
+              labels: { color: "var(--color-secondary)" },
+            },
+          },
+        },
+      });
+    </script>
+
+    <!-- Theme Toggle Script -->
+    <script>
+      const themeToggleCheckbox = document.getElementById("theme-toggle");
+      const body = document.body;
+
+      // Optional: Set initial state based on existing theme
+      if (body.getAttribute("data-theme") === "dark") {
+        themeToggleCheckbox.checked = true;
       }
-    }
-  });
-  </script>
-  <script src="./script.js"></script>
-</body>
+
+      themeToggleCheckbox.addEventListener("change", () => {
+        const isDark = themeToggleCheckbox.checked;
+        body.setAttribute("data-theme", isDark ? "dark" : "light");
+      });
+    </script>
+
+    <script src="./script.js"></script>
+  </body>
 </html>
