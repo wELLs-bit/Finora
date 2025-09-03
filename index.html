@@ -36,155 +36,163 @@
     />
     <style>
       .auth-menu {
-  position: relative;
-  display: inline-block;
-}
+        position: relative;
+        display: inline-block;
+      }
 
-#authDropdown {
-  display: none;
-  position: absolute;
-  top: 40px;
-  right: 0;
-  background: rgb(248, 248, 248);
-  border: 1px solid var(--color-primary);
-  border-radius: 10px;
-  list-style: none;
-  padding: 8px 0;
-  min-width: 150px;
-  z-index: 1000;
-}
+      #authDropdown {
+        display: none;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        background: rgb(248, 248, 248);
+        border: 1px solid var(--color-primary);
+        border-radius: 10px;
+        list-style: none;
+        padding: 8px 0;
+        min-width: 150px;
+        z-index: 1000;
+      }
 
-#authDropdown li {
-  padding: 8px 16px;
-}
+      #authDropdown li {
+        padding: 8px 16px;
+      }
 
-#authDropdown li a {
-  text-decoration: none;
-  color: var(--color-primary);
-  display: block;
-}
+      #authDropdown li a {
+        text-decoration: none;
+        color: var(--color-primary);
+        display: block;
+      }
 
-/* Overlay */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  transition: opacity 0.3s ease;
-}
+      /* Overlay */
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(6px);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        transition: opacity 0.3s ease;
+      }
 
-.modal.is-open {
-  display: flex;
-  animation: fadeIn 0.3s ease;
-}
+      .modal.is-open {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+      }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
 
-/* Dialog box */
-.modal-dialog {
-  background: #fff;
-  padding: 2rem 1.8rem;
-  border-radius: 16px;
-  width: 100%;
-  max-width: 420px;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
-  position: relative;
-  animation: slideUp 0.35s ease;
-}
+      /* Dialog box */
+      .modal-dialog {
+        background: #fff;
+        padding: 2rem 1.8rem;
+        border-radius: 16px;
+        width: 100%;
+        max-width: 420px;
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+        position: relative;
+        animation: slideUp 0.35s ease;
+      }
 
-@keyframes slideUp {
-  from { transform: translateY(40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
+      @keyframes slideUp {
+        from {
+          transform: translateY(40px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
 
-/* Close button */
-.modal-close {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #888;
-  transition: color 0.2s ease;
-}
-.modal-close:hover {
-  color: #111;
-}
+      /* Close button */
+      .modal-close {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #888;
+        transition: color 0.2s ease;
+      }
+      .modal-close:hover {
+        color: #111;
+      }
 
-/* Title */
-#authTitle {
-  margin-bottom: 1.5rem;
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #111827;
-}
+      /* Title */
+      #authTitle {
+        margin-bottom: 1.5rem;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #111827;
+      }
 
-/* Input fields */
-#authForm input {
-  width: 100%;
-  padding: 14px 16px;
-  margin-bottom: 1rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  font-size: 1rem;
-  background: #f9fafb;
-  transition: border 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-#authForm input:focus {
-  border-color: #6A0DAD;
-  outline: none;
-  background: #fff;
-  box-shadow: 0 0 0 3px #6A0DAD;
-}
+      /* Input fields */
+      #authForm input {
+        width: 100%;
+        padding: 14px 16px;
+        margin-bottom: 1rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        font-size: 1rem;
+        background: #f9fafb;
+        transition: border 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+      #authForm input:focus {
+        border-color: #6a0dad;
+        outline: none;
+        background: #fff;
+        box-shadow: 0 0 0 3px #6a0dad;
+      }
 
-/* Button */
-#authForm button {
-  width: 100%;
-  padding: 14px;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #6A0DAD, #1e40af);
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-#authForm button:hover {
-  background: linear-gradient(135deg, #6A0DAD, #1e3a8a);
-  transform: translateY(-1px);
-}
-#authForm button:active {
-  transform: translateY(1px);
-}
+      /* Button */
+      #authForm button {
+        width: 100%;
+        padding: 14px;
+        font-size: 1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #6a0dad, #1e40af);
+        color: white;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+      }
+      #authForm button:hover {
+        background: linear-gradient(135deg, #6a0dad, #1e3a8a);
+        transform: translateY(-1px);
+      }
+      #authForm button:active {
+        transform: translateY(1px);
+      }
 
-/* Toggle text */
-.auth-toggle {
-  text-align: center;
-  margin-top: 1.2rem;
-  font-size: 0.95rem;
-  color: #555;
-}
-.auth-toggle a {
-  color: #2563eb;
-  font-weight: 500;
-  text-decoration: none;
-}
-.auth-toggle a:hover {
-  text-decoration: underline;
-}
-
-
+      /* Toggle text */
+      .auth-toggle {
+        text-align: center;
+        margin-top: 1.2rem;
+        font-size: 0.95rem;
+        color: #555;
+      }
+      .auth-toggle a {
+        color: #2563eb;
+        font-weight: 500;
+        text-decoration: none;
+      }
+      .auth-toggle a:hover {
+        text-decoration: underline;
+      }
     </style>
   </head>
   <body>
@@ -206,41 +214,53 @@
         <li><a href="#contact">CONTACT</a></li>
       </ul>
 
- <div class="navbar-actions">
-  <div class="theme-toggle-container">
-    <input type="checkbox" id="theme-toggle" />
-    <label for="theme-toggle" class="label"></label>
-  </div>
+      <div class="navbar-actions">
+        <div class="theme-toggle-container">
+          <input type="checkbox" id="theme-toggle" />
+          <label for="theme-toggle" class="label"></label>
+        </div>
 
-  <!-- Auth Button -->
-  <div class="auth-menu">
-    <a href="#" class="btn-login" id="authBtn">Login</a>
-    <ul class="dropdown" id="authDropdown">
-      <li><a href="dashboard.html">Dashboard</a></li>
-      <li><a href="#" id="signOut">Sign Out</a></li>
-    </ul>
-  </div>
-</div>
-</nav>
+        <!-- Auth Button -->
+        <div class="auth-menu">
+          <a href="#" class="btn-login" id="authBtn">Login</a>
+          <ul class="dropdown" id="authDropdown">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="#" id="signOut">Sign Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-<!-- Login/Signup Modal -->
-<div class="modal" id="loginModal" aria-hidden="true" role="dialog" aria-labelledby="authTitle">
-  <div class="modal-dialog" role="document">
-    <button class="modal-close" id="closeModal" aria-label="Close">&times;</button>
-    <h2 id="authTitle">Login</h2>
+    <!-- Login/Signup Modal -->
+    <div
+      class="modal"
+      id="loginModal"
+      aria-hidden="true"
+      role="dialog"
+      aria-labelledby="authTitle"
+    >
+      <div class="modal-dialog" role="document">
+        <button class="modal-close" id="closeModal" aria-label="Close">
+          &times;
+        </button>
+        <h2 id="authTitle">Login</h2>
 
-    <form id="authForm" novalidate>
-      <input type="text" id="username" placeholder="Username" required />
-      <input type="password" id="password" placeholder="Password" required />
-      <button type="submit" class="btn-primary">Login</button>
-    </form>
+        <form id="authForm" novalidate>
+          <input type="text" id="username" placeholder="Username" required />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <button type="submit" class="btn-primary">Login</button>
+        </form>
 
-    <p class="auth-toggle">
-      Don't have an account? <a href="#" id="toggleAuth">Sign Up</a>
-    </p>
-  </div>
-</div>
-
+        <p class="auth-toggle">
+          Don't have an account? <a href="#" id="toggleAuth">Sign Up</a>
+        </p>
+      </div>
+    </div>
 
     <!-- Home Section -->
     <section id="home" class="hero">
@@ -596,118 +616,149 @@
     </section>
 
     <!-- Blog Section -->
-<section id="blog">
-  <div class="container">
-    <div class="blog-header">
-      <h1>Recent Posts</h1>
-      <button class="search-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-      </button>
+    <section id="blog">
+      <div class="container">
+        <div class="blog-header">
+          <h1>Recent Posts</h1>
+          <button class="search-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="blog-grid">
+          <!-- Blog Card -->
+          <div class="blog-card">
+            <img
+              src="https://images.unsplash.com/photo-1624996379697-f01d168b1a52?auto=format&fit=crop&w=1470&q=80"
+              alt=""
+            />
+            <div class="card-content">
+              <span class="category">Category</span>
+              <h2>What do you want to know about UI</h2>
+              <p>
+                User Interface (UI) is more than just how something looks it's
+                how it works, how it feels, and how users interact with it...
+              </p>
+              <div class="card-footer">
+                <div>
+                  <p class="author">John Snow</p>
+                  <p class="date">February 1, 2022</p>
+                </div>
+                <button onclick="openModal('modal1')" class="read-more">
+                  Read more
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blog Card 2 -->
+          <div class="blog-card">
+            <img
+              src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1470&q=80"
+              alt=""
+            />
+            <div class="card-content">
+              <span class="category">Category</span>
+              <h2>All the features you want to know</h2>
+              <p>
+                From seamless account integration and real-time analytics to
+                smart budgeting tools and custom reporting...
+              </p>
+              <div class="card-footer">
+                <div>
+                  <p class="author">Arthur Melo</p>
+                  <p class="date">February 6, 2022</p>
+                </div>
+                <button onclick="openModal('modal2')" class="read-more">
+                  Read more
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blog Card 3 -->
+          <div class="blog-card">
+            <img
+              src="https://images.unsplash.com/photo-1597534458220-9fb4969f2df5?auto=format&fit=crop&w=1374&q=80"
+              alt=""
+            />
+            <div class="card-content">
+              <span class="category">Category</span>
+              <h2>Which services you get from Finora</h2>
+              <p>
+                With Finora, you get a full suite of intelligent banking
+                services including real-time financial analytics...
+              </p>
+              <div class="card-footer">
+                <div>
+                  <p class="author">Tom Hank</p>
+                  <p class="date">February 19, 2022</p>
+                </div>
+                <button onclick="openModal('modal3')" class="read-more">
+                  Read more
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Modals -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <button onclick="closeModal('modal1')" class="close-btn">✕</button>
+        <h2>What do you want to know about UI</h2>
+        <p>
+          User Interface (UI) is more than just how something looks — it's how
+          it works, how it feels, and how users interact with it. Whether you're
+          curious about layout design, typography, color systems, or how to
+          create intuitive digital experiences, understanding UI is the first
+          step toward building products people love to use.
+        </p>
+      </div>
     </div>
 
-    <!-- Blog Grid -->
-    <div class="blog-grid">
-      <!-- Blog Card -->
-      <div class="blog-card">
-        <img src="https://images.unsplash.com/photo-1624996379697-f01d168b1a52?auto=format&fit=crop&w=1470&q=80" alt="">
-        <div class="card-content">
-          <span class="category">Category</span>
-          <h2>What do you want to know about UI</h2>
-          <p>
-            User Interface (UI) is more than just how something looks it's how it works, how it feels, and how users interact with it...
-          </p>
-          <div class="card-footer">
-            <div>
-              <p class="author">John Snow</p>
-              <p class="date">February 1, 2022</p>
-            </div>
-            <button onclick="openModal('modal1')" class="read-more">Read more</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Blog Card 2 -->
-      <div class="blog-card">
-        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1470&q=80" alt="">
-        <div class="card-content">
-          <span class="category">Category</span>
-          <h2>All the features you want to know</h2>
-          <p>
-            From seamless account integration and real-time analytics to smart budgeting tools and custom reporting...
-          </p>
-          <div class="card-footer">
-            <div>
-              <p class="author">Arthur Melo</p>
-              <p class="date">February 6, 2022</p>
-            </div>
-            <button onclick="openModal('modal2')" class="read-more">Read more</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Blog Card 3 -->
-      <div class="blog-card">
-        <img src="https://images.unsplash.com/photo-1597534458220-9fb4969f2df5?auto=format&fit=crop&w=1374&q=80" alt="">
-        <div class="card-content">
-          <span class="category">Category</span>
-          <h2>Which services you get from Finora</h2>
-          <p>
-            With Finora, you get a full suite of intelligent banking services including real-time financial analytics...
-          </p>
-          <div class="card-footer">
-            <div>
-              <p class="author">Tom Hank</p>
-              <p class="date">February 19, 2022</p>
-            </div>
-            <button onclick="openModal('modal3')" class="read-more">Read more</button>
-          </div>
-        </div>
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <button onclick="closeModal('modal2')" class="close-btn">✕</button>
+        <h2>All the features you want to know</h2>
+        <p>
+          From seamless account integration and real-time analytics to smart
+          budgeting tools and custom reporting, Finora gives you access to all
+          the features you need to stay ahead. Whether you're tracking expenses,
+          analyzing financial trends, or managing multiple accounts — everything
+          you want to know is right at your fingertips.
+        </p>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- Blog Modals -->
-<div id="modal1" class="modal">
-  <div class="modal-content">
-    <button onclick="closeModal('modal1')" class="close-btn">✕</button>
-    <h2>What do you want to know about UI</h2>
-    <p>
-      User Interface (UI) is more than just how something looks — it's how it works, how it feels, and how users interact with it.
-      Whether you're curious about layout design, typography, color systems, or how to create intuitive digital experiences,
-      understanding UI is the first step toward building products people love to use.
-    </p>
-  </div>
-</div>
-
-<div id="modal2" class="modal">
-  <div class="modal-content">
-    <button onclick="closeModal('modal2')" class="close-btn">✕</button>
-    <h2>All the features you want to know</h2>
-    <p>
-      From seamless account integration and real-time analytics to smart budgeting tools and custom reporting, Finora gives you access
-      to all the features you need to stay ahead. Whether you're tracking expenses, analyzing financial trends, or managing multiple accounts —
-      everything you want to know is right at your fingertips.
-    </p>
-  </div>
-</div>
-
-<div id="modal3" class="modal">
-  <div class="modal-content">
-    <button onclick="closeModal('modal3')" class="close-btn">✕</button>
-    <h2>Which services you get from Finora</h2>
-    <p>
-      With Finora, you get a full suite of intelligent banking services including real-time financial analytics,
-      account aggregation, automated budgeting, spending insights, and personalized financial reports.
-      Our platform is designed to help you make smarter decisions with clarity and confidence.
-    </p>
-  </div>
-</div>
-
-
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <button onclick="closeModal('modal3')" class="close-btn">✕</button>
+        <h2>Which services you get from Finora</h2>
+        <p>
+          With Finora, you get a full suite of intelligent banking services
+          including real-time financial analytics, account aggregation,
+          automated budgeting, spending insights, and personalized financial
+          reports. Our platform is designed to help you make smarter decisions
+          with clarity and confidence.
+        </p>
+      </div>
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
@@ -738,32 +789,45 @@
               support@finora.com
             </li>
           </ul>
-        <div class="contact-links space-y-2">
-  <h3 class="font-semibold text-gray-800 dark:text-white mb-3">Follow Us On:</h3>
-  <ul class="space-y-2 text-gray-600 dark:text-gray-400">
-    <li>
-      <a href="#" class="flex items-center gap-2 hover:text-[#1877F2] transition-colors duration-300">
-        <ion-icon name="logo-facebook"></ion-icon> Facebook
-      </a>
-    </li>
-    <li>
-      <a href="#" class="flex items-center gap-2 hover:text-[#1DA1F2] transition-colors duration-300">
-        <ion-icon name="logo-twitter"></ion-icon> Twitter
-      </a>
-    </li>
-    <li>
-      <a href="#" class="flex items-center gap-2 hover:text-[#E4405F] transition-colors duration-300">
-        <ion-icon name="logo-instagram"></ion-icon> Instagram
-      </a>
-    </li>
-    <li>
-      <a href="#" class="flex items-center gap-2 hover:text-[#0077B5] transition-colors duration-300">
-        <ion-icon name="logo-linkedin"></ion-icon> LinkedIn
-      </a>
-    </li>
-  </ul>
-</div>
-
+          <div class="contact-links space-y-2">
+            <h3 class="font-semibold text-gray-800 dark:text-white mb-3">
+              Follow Us On:
+            </h3>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-[#1877F2] transition-colors duration-300"
+                >
+                  <ion-icon name="logo-facebook"></ion-icon> Facebook
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-[#1DA1F2] transition-colors duration-300"
+                >
+                  <ion-icon name="logo-twitter"></ion-icon> Twitter
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-[#E4405F] transition-colors duration-300"
+                >
+                  <ion-icon name="logo-instagram"></ion-icon> Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center gap-2 hover:text-[#0077B5] transition-colors duration-300"
+                >
+                  <ion-icon name="logo-linkedin"></ion-icon> LinkedIn
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div class="contact-form">
@@ -800,77 +864,72 @@
     </section>
 
     <!-- Footer Section -->
-<footer class="footer">
-  <div class="footer-container">
-    
-    <!-- Newsletter -->
-    <div class="newsletter">
-      <h1>Stay updated with Finora</h1>
-      
-      <!-- <div class="newsletter-form">
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Newsletter -->
+        <div class="newsletter">
+          <h1>Stay updated with Finora</h1>
+
+          <!-- <div class="newsletter-form">
         <input type="email" placeholder="Enter your email" />
         <button>Subscribe</button>
       </div> -->
-    </div>
+        </div>
 
-    <hr />
+        <hr />
 
-    <!-- Footer Links -->
-    <div class="footer-links">
-      
-      <div>
-        <p class="title">Quick Links</p>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Analytics</a></li>
-          <li><a href="#">Pricing</a></li>
-        </ul>
+        <!-- Footer Links -->
+        <div class="footer-links">
+          <div>
+            <p class="title">Quick Links</p>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Analytics</a></li>
+              <li><a href="#">Pricing</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="title">Industries</p>
+            <ul>
+              <li><a href="#">Retail & E-Commerce</a></li>
+              <li><a href="#">Information Technology</a></li>
+              <li><a href="#">Finance & Insurance</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="title">Services</p>
+            <ul>
+              <li><a href="#">Translation</a></li>
+              <li><a href="#">Proofreading</a></li>
+              <li><a href="#">Content Creation</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="title">Contact Us</p>
+            <ul>
+              <li><a href="tel:+2349064894870">+234 906 4894 870</a></li>
+              <li><a href="mailto:info@finora.com">info@finora.com</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <hr />
+
+        <!-- Social Icons -->
+        <div class="social-icons">
+          <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+          <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+          <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+          <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+        </div>
+
+        <p class="copyright">© Finora 2025. All Rights Reserved.</p>
       </div>
-
-      <div>
-        <p class="title">Industries</p>
-        <ul>
-          <li><a href="#">Retail & E-Commerce</a></li>
-          <li><a href="#">Information Technology</a></li>
-          <li><a href="#">Finance & Insurance</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="title">Services</p>
-        <ul>
-          <li><a href="#">Translation</a></li>
-          <li><a href="#">Proofreading</a></li>
-          <li><a href="#">Content Creation</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="title">Contact Us</p>
-        <ul>
-          <li><a href="tel:+2349064894870">+234 906 4894 870</a></li>
-          <li><a href="mailto:info@finora.com">info@finora.com</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <hr />
-
-    <!-- Social Icons -->
-    <div class="social-icons">
-      <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-      <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-      <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
-      <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-    </div>
-
-    <p class="copyright">
-      © Finora 2025. All Rights Reserved.
-    </p>
-  </div>
-</footer>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="./script.js"></script>
